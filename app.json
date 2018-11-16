@@ -1,0 +1,23 @@
+{
+  "id": "276f374f-8cbe-4743-8f97-9b6db9825549",
+  "name": "Remagine ePDF",
+  "publisher": "Remagine Solutions",
+  "brief": "",
+  "description": "",
+  "version": "1.0.0.0",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "capabilities": [],
+  "dependencies": [],
+  "screenshots": [],
+  "showMyCode": true,
+  "platform": "11.0.0.0",
+  "application": "11.0.0.0",
+  "idRange": {
+    "from": 7000000,
+    "to": 7000150
+  }
+}
