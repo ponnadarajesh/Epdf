@@ -21,12 +21,13 @@ pageextension 7000014 ePDFCustList extends "Customer List"
                     IF ePDFSetup."Customer Statement" <> '' THEN BEGIN
                         Cust.COPY(Rec);
                         FiltersText := Cust.GETFILTERS;
+                        //Message
                         IF Cust.FINDSET AND CONFIRM('Do you wish to send statements for date %1 to customers with following filters: \%2', TRUE, ePDFSetup."Stmt Date Filter", FiltersText) THEN BEGIN
                             REPEAT
-                            IF Cust."ePDF Email" THEN BEGIN
-                                EmailSent := ePDF.SendDocument(ePDFSetup."Customer Statement", Cust."No.");
-                                QueueCreated := TRUE;
-                            END;
+                                IF Cust."ePDF Email" THEN BEGIN
+                                    EmailSent := ePDF.SendDocument(ePDFSetup."Customer Statement", Cust."No.");
+                                    QueueCreated := TRUE;
+                                END;
                             UNTIL Cust.NEXT = 0;
 
                             IF EmailSent THEN

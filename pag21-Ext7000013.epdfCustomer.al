@@ -6,8 +6,8 @@ pageextension 7000013 epdfCustomer extends "Customer Card"
         {
             group(ePDF)
             {
-                // Add changes to page layout here
-                field("ePDF Email";"ePDF Email")
+                // Add changes to page layout here this adding the action in the standard page
+                field("ePDF Email"; "ePDF Email")
                 {
                     ApplicationArea = All;
                     Caption = 'ePDF Email';
@@ -23,16 +23,16 @@ pageextension 7000013 epdfCustomer extends "Customer Card"
         {
             group(function)
             {
-               Action("&ePDF Email Customer Statement")     
-               {
+                Action("&ePDF Email Customer Statement")
+                {
                     ApplicationArea = All;
                     Image = SendEmailPDF;
                     trigger OnAction();
                     var
-                        ePDFSetup :record "ePDF Setup";
-                        EmailSent :Boolean;
-                        QueueCreated :Boolean;
-                        ePDF:Codeunit "ePDF Management";
+                        ePDFSetup: record "ePDF Setup";
+                        EmailSent: Boolean;
+                        QueueCreated: Boolean;
+                        ePDF: Codeunit "ePDF Management";
                     begin
                         ePDFSetup.GET;
                         IF (ePDFSetup."Customer Statement" <> '') AND "ePDF Email" THEN BEGIN
@@ -46,10 +46,10 @@ pageextension 7000013 epdfCustomer extends "Customer Card"
                         ELSE
                             MESSAGE('ePDF Email Queue has been created.');
                     end;
-    
-               }
+
+                }
             }
         }
     }
-       
+
 }
